@@ -1,41 +1,13 @@
-<!--
-<h1>Comment box: </h1>
-<form action='/' method='post'>
-<h1>Comment box: </h1>
-
-<textarea name='comment' id='comment'></textarea>
-</form -->
 
 
 
 <form action="/class/new" method="post">
 <h3>Create a new class!</h3>
-Name: <input type="text" name="name" id="class_name" required><br>
+Class Name: <input type="text" name="name" id="class_name" required><br>
 <% 10.times do %>
-  Student: <input type="text" name="student[][name]" id="student_name" ><br>
+  Student: <input type="text" name="student[][name]" id="student_name" placeholder="optional"><br>
 <% end %>
 <input type="submit" value="submit">
 </form>
 
-
-
-
-<!--
-input etc autofocus=""
-
-
-input new teacher (hidden_field)
-
-input student ['student'][]['name']
-input student
-input student
-input student
-input student
-input student
-input student
-input student
-input student
-input student
-
-{class: {id: "1"}, teacher: {name: "tom"}}
-#end the form -->
+<a href="/teacher/<%= @teacher.slug %>">Homepage </a>

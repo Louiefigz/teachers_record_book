@@ -1,6 +1,7 @@
 class CurriculumController < ApplicationController
 
   get '/curriculum/new' do
+    @teacher = Teacher.find(session[:user_id])
     erb :'curriculum/new'
   end
 

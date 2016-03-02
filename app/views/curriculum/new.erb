@@ -1,9 +1,9 @@
 <form action='/curriculum/new' method='post'>
 
-  <% unless @teacher.curriculums == [] %>
+  <% unless @teacher.class_names == [] %>
   <select name="class_name_id">
-      <% @teacher.curriculums.each do |curr|  %>
-        <option value="<%= curr.id %>"><%= curr.name%></option>
+      <% @teacher.class_names.each do |klass|  %>
+        <option value="<%= klass.id %>"><%= klass.name%></option>
       <% end %>
   </select>
   <% end %>
@@ -15,3 +15,7 @@
   <input type="submit" value="Create Curriculum">
 
 </form>
+
+
+<h3> If your class is not listed, make sure to create that class</h3>
+<a href="/class/new">Create Class</a>
