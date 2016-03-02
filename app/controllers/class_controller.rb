@@ -43,7 +43,6 @@ class ClassController < ApplicationController
       ClassName.destroy(params[:id])
       @teacher = Teacher.find(session[:user_id])
       redirect "teacher/#{@teacher.slug}"
-
   end
 
 

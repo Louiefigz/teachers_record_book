@@ -17,7 +17,6 @@ class AssignmentController < ApplicationController
   get '/assignment/:id' do
     redirect_if_not_logged_in
     @assignment = Assignment.find(params[:id])
-    binding.pry
       @teacher = Teacher.find(session[:user_id])
     erb :"assignment/show"
   end

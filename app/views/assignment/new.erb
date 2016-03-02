@@ -1,6 +1,6 @@
 <form action='/assignment/new' method='post'>
   <% unless @teacher.curriculums == [] %>
-  <select name="class_name_id">
+  <select name="curriculum_id">
       <% @teacher.curriculums.each do |curr|  %>
         <option value="<%= curr.id %>"><%= curr.name%></option>
       <% end %>

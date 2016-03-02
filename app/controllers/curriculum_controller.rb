@@ -36,8 +36,9 @@ class CurriculumController < ApplicationController
 
   get '/curriculum/:id/delete' do
     redirect_if_not_logged_in
+    binding.pry
     Curriculum.destroy(params[:id])
-    @curriculum = Curriculum.create(params)
+    
     @teacher = Teacher.find(session[:user_id])
     redirect "teacher/#{@teacher.slug}"
   end
