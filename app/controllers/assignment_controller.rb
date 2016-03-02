@@ -1,14 +1,11 @@
 class AssignmentController < ApplicationController
 
   get '/assignment/new' do
-    if is_logged_in?
+    redirect_if_not_logged_in
 
       @teacher = Teacher.find(session[:user_id])
       binding.pry
       erb :'assignment/new'
-    else
-      redirect '/login'
-    end
   end
 
   post '/assignment/new' do
@@ -18,6 +15,7 @@ class AssignmentController < ApplicationController
   end
 
   get '/assignment/:id' do
+    redirect_if_not_logged_in
     @assignment = Assignment.find(params[:id])
     binding.pry
       @teacher = Teacher.find(session[:user_id])
@@ -25,12 +23,10 @@ class AssignmentController < ApplicationController
   end
 
   get '/assignment/:id/edit' do
-    if is_logged_in?
+  redirect_if_not_logged_in
       @assignment = Assignment.find(params[:id])
       erb :'assignment/edit'
-    else
-      redirect '/login'
-    end
+
   end
 
   post '/assignment/:id/edit' do
@@ -42,13 +38,10 @@ class AssignmentController < ApplicationController
   end
 
   get '/assignment/:id/delete' do
-    if is_logged_in?
+      redirect_if_not_logged_in
       Assignment.destroy(params[:id])
       @teacher = Teacher.find(session[:user_id])
       redirect "teacher/#{@teacher.slug}"
-    else
-      rediect '/login'
-    end
   end
 
 

@@ -2,7 +2,7 @@ class StudentController < ApplicationController
 require 'pry'
 
     get '/student/new' do
-      binding.pry
+      redirect_if_not_logged_in
       @teacher = Teacher.find(session[:user_id])
       erb :'student/new'
     end
@@ -15,20 +15,21 @@ require 'pry'
     end
 
     get '/student/:id' do
+      redirect_if_not_logged_in
       @student = Student.find(params[:id])
       @teacher = Teacher.find(session[:user_id])
       erb :'student/show'
     end
 
     get '/student/:id/edit' do
-      binding.pry
+      redirect_if_not_logged_in
       @student = Student.find(params[:id])
       @teacher = Teacher.find(session[:user_id])
       erb :'student/edit'
     end
 
     post '/student/:id/edit' do
-      binding.pry
+
       @student = Student.find(params[:id])
       @student.update(name: params[:name])
       @teacher = Teacher.find(session[:user_id])
@@ -36,6 +37,7 @@ require 'pry'
     end
 
   get '/student/:id/delete' do
+    redirect_if_not_logged_in
     @student = Student.find(params[:id])
     @student.destroy
     @teacher = Teacher.find(session[:user_id])
