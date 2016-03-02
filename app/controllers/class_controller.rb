@@ -20,6 +20,7 @@ class ClassController < ApplicationController
       erb :'class/show'
     else
       redirect '/login'
+    end
   end
 
   get '/class/:id/edit' do

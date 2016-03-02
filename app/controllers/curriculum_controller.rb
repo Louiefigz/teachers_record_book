@@ -1,8 +1,9 @@
 class CurriculumController < ApplicationController
 
   get '/curriculum/new' do
-    @teacher = Teacher.find(session[:user_id])
-    erb :'curriculum/new'
+    redirect_if_not_logged_in
+      @teacher = Teacher.find(session[:user_id])
+      erb :'curriculum/new'
   end
 
   post '/curriculum/new' do
@@ -13,13 +14,14 @@ class CurriculumController < ApplicationController
   end
 
   get '/curriculum/:id' do
-    binding.pry
-    @curr = Curriculum.find(params[:id])
-    @teacher = Teacher.find(session[:user_id])
-    erb :'/curriculum/show'
+    redirect_if_not_logged_in
+      @curr = Curriculum.find(params[:id])
+      @teacher = Teacher.find(session[:user_id])
+      erb :'/curriculum/show'
   end
 
   get '/curriculum/:id/edit' do
+    redirect_if_not_logged_in
     @curriculum = Curriculum.find(params[:id])
     erb :"curriculum/edit"
   end
