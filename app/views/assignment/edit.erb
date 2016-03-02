@@ -1,0 +1,16 @@
+<form action='/assignment/<%= @assignment.id %>/edit' method='post'>
+  <% unless @teacher.curriculums == [] %>
+  <select name="class_name_id">
+      <% @teacher.curriculums.each do |curr|  %>
+        <option value="<%= curr.id %>"><%= curr.name%></option>
+      <% end %>
+  </select>
+  <% end %>
+
+
+  <h3>What's the name of your Assignment?</h3>
+  <input type="text" name="name" value="<%= @assignment.name %>" required>
+
+  <input type="submit" value="Create Assignment">
+
+</form>

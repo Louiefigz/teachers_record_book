@@ -1,0 +1,18 @@
+<%=@class.name %><br>
+
+<%=@class.teacher.name %>
+
+<h2>Students in this class</h2>
+<%@class.students.each do |students| %>
+    <p><%=students.name%></p>
+<%end%>
+
+<h2>Curriculum for this class</h2>
+<%@class.curriculums.each do |curriculum| %>
+    <p><%=curriculum.name%></p>
+<%end%>
+
+<h2>Assignments for this class</h2>
+<%@class.assignments.each do |assignment| %>
+    <p><%=assignment.name%></p>
+<%end%>

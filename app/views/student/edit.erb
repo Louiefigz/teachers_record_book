@@ -1,0 +1,20 @@
+
+<form action="/student/<%=@student.id%>/edit" method='post'>
+
+  <% unless @teacher.class_names == [] %>
+  <select name="class_name_id">
+      <% @teacher.class_names.each do |klass|  %>
+        <option value="<%= klass.id %>"><%= klass.name%></option>
+      <% end %>
+  </select>
+  <% end %>
+  <h5>If your class is not listed, create one by clicking below</h5>
+  <p><a href="/class/new">Create Class</a></p>
+
+
+<h3>What is the students name?</h3>
+<input type="text" name="name" id="name" value="<%= @student.name %>" required>
+<input type="submit" value="edit Student">
+
+
+</form>

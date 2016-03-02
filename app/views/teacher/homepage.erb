@@ -1,0 +1,71 @@
+<h1>Welcome <%= @teacher.name %></h1>
+<h2>Time to make your classes, Curriculum and add students</h2>
+
+<h2>All Classes</h2>
+
+
+
+<table>
+<%@teacher.class_names.each do |t| %>
+  <tr>
+    <td><a href="/class/<%=t.id%>"><%=t.name%></a></td>
+    <td><a href="/class/<%=t.id%>/delete" method="GET">Delete</a></td>
+    <td><a href="/class/<%=t.id%>/edit" method="GET">Edit</a></td>
+  </tr>
+  <%end%>
+</table>
+<br>
+
+<h1>------------------------------------------------</h1>
+
+<h2>All Students </h2>
+<table>
+<%@teacher.students.uniq.each do |t| %>
+<tr>
+  <td><a href="/student/<%=t.id%>"><%=t.name%></a></td>
+  <td><a href="/student/<%=t.id%>/delete" method="GET">Delete</a></td>
+  <td><a href="/student/<%=t.id%>/edit" method="GET">Edit</a></td>
+</tr>
+  <%end%>
+</table>
+<br>
+
+<h1>------------------------------------------------</h1>
+
+  <h2>All of Your Curriculums</h2>
+  <table>
+  <%@teacher.curriculums.each do |t| %>
+  <tr>
+    <td><a href="/curriculum/<%=t.id%>"><%=t.name%></a></td>
+    <td><a href="/curriculum/<%=t.id%>/delete" method="GET">Delete</a></td>
+    <td><a href="/curriculum/<%=t.id%>/edit" method="GET">Edit</a></td>
+  </tr>
+  <%end%>
+</table>
+<br>
+
+<h1>------------------------------------------------</h1>
+
+
+<h2>All Assignments</h2>
+
+<table>
+<%@teacher.assignments.each do |t|  %>
+  <tr>
+    <td><a href="/assignment/<%=t.id%>"><%=t.name%></a></td>
+    <td><a href="/assignment/<%=t.id%>/delete" method="GET">Delete</a></td>
+    <td><a href="/assignment/<%=t.id%>/edit" method="GET">Edit</a></td>
+  </tr>
+  <%end%>
+</table>
+<br>
+
+<h1>------------------------------------------------</h1>
+
+<p><a href="/student/new">Create a Student</a></p>
+<p><a href="/class/new">Create a class </a></p>
+
+<p><a href="/curriculum/new">Create a Curriculum</a></p>
+<p><a href="/assignment/new">Create Assignments</a></p>
+
+<h3><a href="/logout">Logout</h3

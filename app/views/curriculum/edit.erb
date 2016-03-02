@@ -1,0 +1,14 @@
+<form action='/curriculum/<%=@curriculum.id %>/edit' method='post'>
+<select name="class_name_id">
+  <% ClassName.all.each do |klass|  %>
+    <option value="<%= klass.id %>"><%= klass.name%></option>
+  <% end %>
+</select>
+
+
+  <h3>What's the name of your Curriculum</h3>
+  <input type="text" name="name" value="<%= @curriculum.name %>" >
+
+  <input type="submit" value="Edit Curriculum">
+
+</form>

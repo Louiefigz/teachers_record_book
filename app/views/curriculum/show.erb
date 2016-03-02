@@ -1,0 +1,13 @@
+<h1>Here are your Assignments for your Curriculum:<br> "<%= @curr.name%>"</h1>
+
+
+<ul>
+<% @curr.assignments.each do |t|%>
+  <li><%= t.name %><li>
+    </ul>
+<% end %>
+
+
+<h2>-----------------------------------------</h2>
+
+<a href="/teacher/<%=@teacher.slug%>">Homepage</a>

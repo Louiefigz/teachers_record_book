@@ -1,0 +1,9 @@
+<form action="/class/<%= @class.id %>/edit" method="post">
+<h3>Edit your class!</h3>
+Name: <input type="text" name="name" id="class_name" value="<%= @class.name%>" required><br>
+<h3>If you have new students, add them below</h3>
+<% 10.times do %>
+  Student: <input type="text" name="student[][name]" id="student_name" ><br>
+<% end %>
+<input type="submit" value="Edit Class">
+</form>

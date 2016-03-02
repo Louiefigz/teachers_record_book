@@ -1,0 +1,23 @@
+<h1>You're student, <%= @student.name%>'s profile</h1>
+
+<h2>All <%= @student.name%>'s classes</h2>
+
+<% @student.class_names.each do |t| %>
+  <p><%= t.name %></p>
+<% end %>
+
+<h2>All <%= @student.name%>'s Curriculums</h2>
+  <% @student.curriculums.each do |t| %>
+    <p><%= t.name %></p>
+  <% end %>
+
+<h2>All <%= @student.name%>'s Assignments</h2>
+<% @student.assignments.each do |t| %>
+  <p><%= t.name %></p>
+<% end %><br>
+
+
+<h2>---------------------------------------</h2>
+
+
+<h3><a href="/teacher/<%=@teacher.slug%>">Back to Homepage</a></h3>

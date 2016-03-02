@@ -1,0 +1,18 @@
+<form action='/assignment/new' method='post'>
+  <% unless @teacher.curriculums == [] %>
+  <select name="class_name_id">
+      <% @teacher.curriculums.each do |curr|  %>
+        <option value="<%= curr.id %>"><%= curr.name%></option>
+      <% end %>
+  </select>
+  <% end %>
+  <h2>OR Create a Curriculum below</h2>
+  <h2><a href="/curriculum/new">create Curriculum</a><h2>
+
+
+  <h3>What's the name of your Assignment?</h3>
+  <input type="text" name="name" >
+
+  <input type="submit" value="Create Assignment">
+
+</form>

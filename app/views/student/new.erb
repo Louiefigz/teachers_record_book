@@ -1,0 +1,20 @@
+
+<form action='/student/new' method='post'>
+
+  <% unless @teacher.class_names == [] %>
+  <select name="class_name_id">
+      <% @teacher.class_names.each do |klass|  %>
+        <option value="<%= klass.id %>"><%= klass.name%></option>
+      <% end %>
+  </select>
+  <% end %>
+  <h5>Or Create a class</h5>
+  <a href="/class/new">Create New Class</a>
+
+
+<h3>What is the students name?</h3>
+<input type="text" name="name" id="name" required>
+<input type="submit" value="Create Student">
+
+
+</form>
