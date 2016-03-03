@@ -14,6 +14,7 @@ class ClassController < ApplicationController
   get '/class/:id' do
     redirect_if_not_logged_in
       @class = ClassName.find(params[:id])
+      @teacher = Teacher.find(session[:user_id])
       erb :'class/show'
 
   end
